@@ -249,10 +249,12 @@
     initPortfolioSlider(host);
     if(!window.PMData) return;
     try{
-      const rows=(await PMData.projects()).map(normalizeProject).filter(Boolean).filter(x=>x.featured).slice(0,6);
-      // CMS edits can replace the curated fallback, but only when there is a real portfolio set.
-      if(rows.length>=3)renderFeaturedShowcase(rows);
-      buildWorkMega(rows);
+      const all=(await PMData.projects()).map(normalizeProject).filter(Boolean);
+      const featured=all.filter(x=>x.featured);
+      const rows=(featured.length?featured:all).slice(0,6);
+      // Admin panel is the source of truth. Static cards remain only as offline fallback.
+      if(rows.length)renderFeaturedShowcase(rows);
+      buildWorkMega(all);
     }catch(err){console.warn('Featured unavailable',err)}
   }
 
@@ -283,7 +285,7 @@
     try{
       let rows=await PMData.brands(); if(!rows.length)return;
       const limit=parseInt(window.PMContentMap?.['brands.carousel_limit']||'16',10)||16;
-      rows=rows.filter((b,i,a)=>b?.name && !/prime\s*b\.?\s*u\.?\s*coffee/i.test(String(b.name).normalize('NFD').replace(/[\u0300-\u036f]/g,'')) && a.findIndex(x=>String(x.name).toLocaleLowerCase('tr-TR')===String(b.name).toLocaleLowerCase('tr-TR'))===i).slice(0,limit);
+      rows=rows.filter((b,i,a)=>b?.name && a.findIndex(x=>String(x.name).toLocaleLowerCase('tr-TR')===String(b.name).toLocaleLowerCase('tr-TR'))===i).slice(0,limit);
       if(rows.length<2)return;
       const item=b=>`<a class="brand-tile" ${b.url?`href="${esc(b.url)}" target="_blank" rel="noreferrer"`:''}>${b.logo_url?`<img src="${esc(b.logo_url)}" alt="${esc(b.name)}"/>`:`<span>${esc(b.name)}</span>`}</a>`;
       const rowA=rows.filter((_,i)=>i%2===0), rowB=rows.filter((_,i)=>i%2===1);
@@ -508,30 +510,35 @@
   (()=>{
     const drawer=document.querySelector('.mobile-menu');if(!drawer)return;
     drawer.innerHTML=`
-      <div class="menu-drawer-top"><span>MENÜ</span><small>PAROGLU MEDIA</small></div>
-      <div class="drawer-primary">
-        <a href="hakkimda.html">Hakkımda <i>↗</i></a>
-        <a href="hizmetler.html">Hizmetler <i>↗</i></a>
-        <a href="isler.html">İşler <i>↗</i></a>
-        <a class="mobile-cta" href="teklif-al.html">Teklif Al <i>↗</i></a>
+      <div class="menu-command-head"><div><span class="menu-command-live"><i></i> PAROGLU / MENU</span><small>Creative Studio · Türkiye</small></div><button class="menu-command-close" type="button" aria-label="Menüyü kapat">×</button></div>
+      <div class="drawer-primary menu-command-main">
+        <a href="index.html"><span>Ana Sayfa</span><i>01</i></a>
+        <a href="hakkimda.html"><span>Hakkımda</span><i>02</i></a>
+        <a href="hizmetler.html"><span>Hizmetler</span><i>03</i></a>
+        <a href="isler.html"><span>İşler</span><i>04</i></a>
+        <a href="iletisim.html"><span>İletişim</span><i>05</i></a>
       </div>
-      <div class="menu-drawer-label">PORTFOLYO</div>
-      <div class="menu-drawer-grid">
-        <a href="konser.html">Konser <i>↗</i></a>
-        <a href="fotograf.html">Fotoğraf <i>↗</i></a>
-        <a href="tasarim.html">Tasarım <i>↗</i></a>
-        <a href="drone.html">Drone <i>↗</i></a>
+      <div class="menu-drawer-label">HIZLI KEŞFET</div>
+      <div class="menu-drawer-grid command-grid">
+        <a href="konser.html"><span>Konser</span><i>↗</i></a>
+        <a href="fotograf.html"><span>Fotoğraf</span><i>↗</i></a>
+        <a href="tasarim.html"><span>Tasarım</span><i>↗</i></a>
+        <a href="drone.html"><span>Drone</span><i>↗</i></a>
+        <a href="karabuk-idman-yurdu.html"><span>Spor</span><i>↗</i></a>
+        <a href="isler.html"><span>Tüm İşler</span><i>↗</i></a>
       </div>
       <div class="menu-drawer-label">BAĞLANTI</div>
-      <div class="menu-drawer-links">
-        <a href="iletisim.html">İletişim <i>↗</i></a>
-        <a href="https://www.instagram.com/iamparoglu/" target="_blank" rel="noopener">Instagram · @iamparoglu <i>↗</i></a>
-      </div>`;
+      <div class="menu-command-socials">
+        <a href="https://www.instagram.com/iamparoglu/" target="_blank" rel="noopener"><span>Instagram</span><small>@iamparoglu</small><i>↗</i></a>
+        <a href="https://www.linkedin.com/in/umut-paro%C4%9Flu-27a630281/" target="_blank" rel="noopener"><span>LinkedIn</span><small>Umut Paroğlu</small><i>↗</i></a>
+      </div>
+      <a class="menu-command-cta" href="teklif-al.html"><span><small>YENİ BİR PROJE</small><strong>Projeyi Başlat</strong></span><i>↗</i></a>`;
     const page=(location.pathname.split('/').pop()||'index.html').toLowerCase();
     drawer.querySelectorAll('a[href]').forEach(a=>{
       const href=(a.getAttribute('href')||'').split('?')[0].toLowerCase();
       if(href===page)a.classList.add('is-current');
     });
+    drawer.querySelector('.menu-command-close')?.addEventListener('click',()=>{drawer.classList.remove('open');document.querySelector('.menu-toggle')?.setAttribute('aria-expanded','false');document.body.classList.remove('mobile-nav-open')});
   })();
 
   /* ---------------------------------------------------------
@@ -581,32 +588,6 @@
     viewport.addEventListener('pointerup',end,{passive:true});viewport.addEventListener('pointercancel',end,{passive:true});
     viewport.addEventListener('click',e=>{if(moved&&e.target.closest('.home-work-card')){e.preventDefault();e.stopPropagation();moved=false}},true);
   })();
-
-
-  /* V12.4 — editorial typography reveal + subtle scroll drift */
-  (()=>{
-    const section=document.querySelector('[data-editorial-statement]');
-    if(!section)return;
-    const lines=[...section.querySelectorAll('[data-editorial-line]')];
-    const pill=section.querySelector('[data-editorial-pill]');
-    const io=new IntersectionObserver(entries=>{
-      entries.forEach(entry=>{if(entry.isIntersecting){section.classList.add('is-visible');io.unobserve(section)}})
-    },{threshold:.18});
-    io.observe(section);
-    if(reduceMotion)return;
-    let ticking=false;
-    const drift=()=>{
-      ticking=false;
-      const r=section.getBoundingClientRect();
-      if(r.bottom<0||r.top>innerHeight||!section.classList.contains('is-visible'))return;
-      const p=Math.max(-1,Math.min(1,(innerHeight/2-(r.top+r.height/2))/innerHeight));
-      lines.forEach((line,i)=>line.style.translate=`${(i%2?1:-1)*p*(i+1)*1.7}px ${p*(i-1)*1.15}px`);
-      if(pill)pill.style.translate=`${p*-3.5}px ${p*1.5}px`;
-    };
-    addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(drift)}},{passive:true});
-    drift();
-  })();
-
   /* BOOT */
   Promise.resolve(loadContent()).then(()=>loadBrands());
   loadProjects();loadFeatured();loadAssistantKnowledge();

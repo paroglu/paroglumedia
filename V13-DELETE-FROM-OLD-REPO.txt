@@ -1,0 +1,17 @@
+V13 full paketle repo kökünü yenilersen bu listeyi ayrıca uygulamana gerek yok. Patch kullanıyorsan eski repodan sil:
+
+paroglu-media-logo.png
+README-V12.4.2.txt
+README-V8-RC3.txt
+README-V8-RC2.txt
+admin.js
+README-V12-MOTION.txt
+cover-concert-video.jpg
+README-V12.4.txt
+README-V8-RC.txt
+AI-SETUP.md
+README.txt
+README-V12.4.3.txt
+README-V10.3.txt
+README-V12.1-ADMIN.txt
+cover-karabuk.jpg

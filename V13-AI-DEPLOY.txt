@@ -1,0 +1,7 @@
+PAROGLU MEDIA V13 — AI EDGE FUNCTION
+
+Site paketi AI endpoint olarak /functions/v1/smooth-worker kullanır.
+Supabase > Edge Functions > smooth-worker > Code içeriğini supabase/functions/smooth-worker/index.ts ile değiştirip Deploy et.
+Settings > Verify JWT kapalı kalmalı.
+Secrets içinde OPENAI_API_KEY bulunmalı.
+Kod API anahtarını içermez. Origin kontrolü ve temel hız limiti eklenmiştir.

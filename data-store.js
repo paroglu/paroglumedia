@@ -28,6 +28,9 @@
       try{return await select('assistant_knowledge','select=*&active=eq.true&order=sort_order.asc,created_at.asc')}
       catch(err){if(err.status===404||err.status===400)return [];throw err}
     },
+    aiChat(payload){
+      return request('/functions/v1/smooth-worker',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload||{})});
+    },
     submitBrief(payload){
       return request('/rest/v1/briefs',{method:'POST',headers:{'Content-Type':'application/json',Prefer:'return=representation'},body:JSON.stringify(payload)});
     }

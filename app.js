@@ -347,10 +347,40 @@
     if(/merhaba|selam|hey/.test(t))return {text:'Merhaba. Reels, sosyal medya, fotoğraf, tasarım, drone, web, spor ve konser prodüksiyonu hakkında sorabilirsin. Bir proje düşünüyorsan firma adını da yazabilirsin.',suggest:['Reels süreci nasıl?','Sosyal medya yönetimi','Fiyat nasıl belirleniyor?']};
     return {text:'Bu konuda en doğru yönlendirmeyi yapabilmem için firma / sektör, istediğin iş ve hedefini bir cümleyle yaz. Örneğin “bir restoran için aylık Reels ve sosyal medya yönetimi istiyorum” diyebilirsin.',suggest:['Bir proje başlatmak istiyorum','Hizmetleri anlat','İletişim bilgileri']};
   }
-  launch?.addEventListener('click',()=>{assistantPanel?.classList.add('open');if(messages&&!messages.children.length){add('Merhaba. Paroglu Media hakkında aklına takılanları sorabilir veya projen için doğru hizmeti birlikte netleştirebiliriz.');addSuggestions(['Reels süreci nasıl?','Sosyal medya yönetimi','Spor kulübü içerikleri','Konser çekimi','Fiyat nasıl belirleniyor?'])}});
+  const aiHistory=[];
+  let aiBusy=false;
+  function setAiBusy(on){
+    aiBusy=on;
+    if(send){send.disabled=on;send.setAttribute('aria-busy',String(on));}
+    if(input)input.disabled=on;
+  }
+  function addTyping(){
+    if(!messages)return null;
+    const d=document.createElement('div');d.className='msg bot assistant-typing';d.textContent='Düşünüyor…';messages.appendChild(d);messages.scrollTop=messages.scrollHeight;return d;
+  }
+  async function askRealAI(v){
+    if(!window.PMData?.aiChat)throw new Error('AI endpoint unavailable');
+    const result=await PMData.aiChat({message:v,history:aiHistory.slice(-10),page:location.pathname});
+    if(!result?.reply)throw new Error('Empty AI reply');
+    return String(result.reply).trim();
+  }
+  launch?.addEventListener('click',()=>{assistantPanel?.classList.add('open');if(messages&&!messages.children.length){add('Merhaba. Ben Paroglu Asistan. Paroglu Media hizmetleri, portfolyo ve proje planlama konusunda yardımcı olabilirim.');addSuggestions(['Reels süreci nasıl?','Sosyal medya yönetimi','Spor kulübü içerikleri','Konser çekimi','Fiyat nasıl belirleniyor?'])}});
   close?.addEventListener('click',()=>assistantPanel?.classList.remove('open'));
-  const submitChat=()=>{const v=input?.value.trim();if(!v)return;add(v,'user');input.value='';$$('.assistant-suggestions',messages).forEach(x=>x.remove());setTimeout(()=>{const r=faqReply(v);add(r.text);if(r.suggest?.length)addSuggestions(r.suggest)},230)};
-  send?.addEventListener('click',submitChat);input?.addEventListener('keydown',e=>{if(e.key==='Enter')submitChat()});
+  const submitChat=async()=>{
+    const v=input?.value.trim();if(!v||aiBusy)return;
+    add(v,'user');input.value='';$$('.assistant-suggestions',messages).forEach(x=>x.remove());
+    setAiBusy(true);const typing=addTyping();
+    try{
+      const reply=await askRealAI(v);
+      typing?.remove();add(reply);
+      aiHistory.push({role:'user',content:v},{role:'assistant',content:reply});
+      if(aiHistory.length>16)aiHistory.splice(0,aiHistory.length-16);
+    }catch(err){
+      console.warn('Paroglu AI unavailable; FAQ fallback active',err);
+      typing?.remove();const r=faqReply(v);add(r.text);if(r.suggest?.length)addSuggestions(r.suggest);
+    }finally{setAiBusy(false);input?.focus();}
+  };
+  send?.addEventListener('click',submitChat);input?.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();submitChat()}});
 
   /* ---------------------------------------------------------
      BRIEF FLOW
@@ -550,6 +580,31 @@
     const end=()=>{if(startX==null)return;startX=null;if(card){const a=Math.max(-7,Math.min(7,lastDx/18));card.classList.remove('is-hand-turn');card.style.removeProperty('--hand-turn');card.classList.add('page-settle');card.style.setProperty('--settle-angle',`${a}deg`);setTimeout(()=>{card?.classList.remove('page-settle');card?.style.removeProperty('--settle-angle')},480)}card=null};
     viewport.addEventListener('pointerup',end,{passive:true});viewport.addEventListener('pointercancel',end,{passive:true});
     viewport.addEventListener('click',e=>{if(moved&&e.target.closest('.home-work-card')){e.preventDefault();e.stopPropagation();moved=false}},true);
+  })();
+
+
+  /* V12.4 — editorial typography reveal + subtle scroll drift */
+  (()=>{
+    const section=document.querySelector('[data-editorial-statement]');
+    if(!section)return;
+    const lines=[...section.querySelectorAll('[data-editorial-line]')];
+    const pill=section.querySelector('[data-editorial-pill]');
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(entry=>{if(entry.isIntersecting){section.classList.add('is-visible');io.unobserve(section)}})
+    },{threshold:.18});
+    io.observe(section);
+    if(reduceMotion)return;
+    let ticking=false;
+    const drift=()=>{
+      ticking=false;
+      const r=section.getBoundingClientRect();
+      if(r.bottom<0||r.top>innerHeight)return;
+      const p=Math.max(-1,Math.min(1,(innerHeight/2-(r.top+r.height/2))/innerHeight));
+      lines.forEach((line,i)=>line.style.translate=`${(i%2?1:-1)*p*(i+1)*3.2}px ${p*(i-1)*2}px`);
+      if(pill)pill.style.translate=`${p*-7}px ${p*3}px`;
+    };
+    addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(drift)}},{passive:true});
+    drift();
   })();
 
   /* BOOT */

@@ -598,10 +598,10 @@
     const drift=()=>{
       ticking=false;
       const r=section.getBoundingClientRect();
-      if(r.bottom<0||r.top>innerHeight)return;
+      if(r.bottom<0||r.top>innerHeight||!section.classList.contains('is-visible'))return;
       const p=Math.max(-1,Math.min(1,(innerHeight/2-(r.top+r.height/2))/innerHeight));
-      lines.forEach((line,i)=>line.style.translate=`${(i%2?1:-1)*p*(i+1)*3.2}px ${p*(i-1)*2}px`);
-      if(pill)pill.style.translate=`${p*-7}px ${p*3}px`;
+      lines.forEach((line,i)=>line.style.translate=`${(i%2?1:-1)*p*(i+1)*1.7}px ${p*(i-1)*1.15}px`);
+      if(pill)pill.style.translate=`${p*-3.5}px ${p*1.5}px`;
     };
     addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(drift)}},{passive:true});
     drift();

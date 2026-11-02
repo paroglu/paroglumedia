@@ -1,150 +1,176 @@
 <!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#08070b" />
+  <meta name="description" content="ParogluMedia — Sinematik prodüksiyon, konser ve etkinlik fotoğrafçılığı, spor iletişimi, kurumsal tasarım ve yaratıcı içerik. Beyond the Frame." />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="ParogluMedia — Beyond the Frame" />
+  <meta property="og:description" content="Görünen değil, hatırlanan işler. Yaratıcı prodüksiyon, fotoğraf ve tasarım." />
+  <meta property="og:image" content="https://raw.githubusercontent.com/paroglu/paroglumedia/main/og-cover.jpg" />
+  <title>ParogluMedia — Beyond the Frame / V14 Preview</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./styles.css" />
+  <script defer src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+  <div class="scroll-progress" aria-hidden="true"><span id="scrollProgress"></span></div>
+  <div class="ambient-grain" aria-hidden="true"></div>
+  <div class="intro" id="intro" aria-hidden="true">
+    <div class="intro-center"><span class="intro-mark">P<span>·</span>M</span><span class="intro-caption">A CREATIVE VISION</span></div>
+    <span class="intro-edge">PAROGLUMEDIA / FRAME 001</span>
+  </div>
 
-<html lang="tr"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1" name="viewport"/><meta content="#07070b" name="theme-color"/><title>Paroglu Media — Umut Paroğlu</title><meta content="Paroglu Media — Reels, fotoğraf, grafik tasarım, sosyal medya, drone ve dijital üretim." name="description"/><link href="styles.css?v=13" rel="stylesheet"/><link as="image" href="paroglu-media-logo-light.png" rel="preload"/><link href="https://paroglumedia.com/" rel="canonical"/><meta content="website" property="og:type"/><meta content="Paroglu Media — Umut Paroğlu" property="og:title"/><meta content="Paroglu Media — Reels, fotoğraf, grafik tasarım, sosyal medya, drone ve dijital üretim." property="og:description"/><meta content="https://paroglumedia.com/" property="og:url"/><meta content="https://paroglumedia.com/og-cover.jpg" property="og:image"/><meta content="dark" name="color-scheme"/><link href="favicon-32.png" rel="icon" type="image/png"/><link href="favicon-180.png" rel="apple-touch-icon"/><style>
-.paroglu-signature{padding:0 0 88px;}
-.paroglu-signature .signature-shell{position:relative;overflow:hidden;border-radius:32px;background:#140014;min-height:clamp(320px,42vw,560px);box-shadow:0 28px 90px rgba(0,0,0,.35),0 0 0 1px rgba(255,255,255,.06) inset;isolation:isolate}
-.paroglu-signature .signature-shell img{width:100%;height:100%;display:block;object-fit:cover;object-position:center 24%;filter:saturate(1.04)}
-.paroglu-signature .signature-shell::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(9,2,15,.06) 0%,rgba(9,2,15,.18) 28%,rgba(8,3,16,.62) 72%,rgba(7,3,14,.92) 100%);z-index:1}
-.paroglu-signature .signature-shell::after{content:"";position:absolute;inset:auto auto 12% -6%;width:44%;height:44%;background:radial-gradient(circle,rgba(255,0,170,.28),rgba(255,0,170,0));filter:blur(12px);z-index:1;pointer-events:none}
-.paroglu-signature .signature-content{position:absolute;left:0;right:0;bottom:0;padding:clamp(26px,4vw,48px);display:flex;gap:28px;justify-content:space-between;align-items:flex-end;z-index:2}
-.paroglu-signature .signature-copy{max-width:760px}
-.paroglu-signature .signature-eyebrow{display:inline-flex;align-items:center;gap:10px;margin:0 0 14px;color:rgba(255,255,255,.72);font-size:12px;letter-spacing:.24em;text-transform:uppercase}
-.paroglu-signature .signature-eyebrow::before{content:"";width:44px;height:1px;background:linear-gradient(90deg,rgba(255,0,170,.9),rgba(255,255,255,.18))}
-.paroglu-signature h2{margin:0;font-size:clamp(34px,5vw,72px);line-height:.95;color:#fff;letter-spacing:-.04em}
-.paroglu-signature h2 em{font-style:normal;color:#ff5bc8}
-.paroglu-signature p{margin:16px 0 0;max-width:680px;color:rgba(255,255,255,.78);font-size:clamp(15px,1.4vw,18px);line-height:1.6}
-.paroglu-signature .signature-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
-.paroglu-signature .signature-link{display:inline-flex;align-items:center;justify-content:center;padding:14px 22px;border-radius:999px;text-decoration:none;font-weight:600;letter-spacing:-.01em;transition:transform .25s ease,opacity .25s ease,border-color .25s ease;background:rgba(255,255,255,.08);color:#fff;border:1px solid rgba(255,255,255,.12);backdrop-filter:blur(12px)}
-.paroglu-signature .signature-link.primary{background:linear-gradient(135deg,#ff3cb5,#8d39ff);border-color:transparent;box-shadow:0 10px 32px rgba(209,45,255,.28)}
-.paroglu-signature .signature-link:hover{transform:translateY(-2px);opacity:.96}
-.paroglu-signature .signature-note{display:block;margin-top:12px;color:rgba(255,255,255,.58);font-size:13px}
-.paroglu-about-visual{padding-top:12px}
-.paroglu-about-visual .signature-shell{min-height:clamp(280px,34vw,460px)}
-.paroglu-about-visual .signature-content{align-items:flex-end}
-.paroglu-about-visual h2{font-size:clamp(28px,4.2vw,58px)}
-.paroglu-about-visual p{max-width:760px}
-@media (max-width:900px){
-  .paroglu-signature .signature-content{flex-direction:column;align-items:flex-start}
-  .paroglu-signature .signature-shell img{object-position:center 18%}
-}
-@media (max-width:640px){
-  .paroglu-signature{padding:0 0 64px}
-  .paroglu-signature .signature-shell{border-radius:24px;min-height:420px}
-  .paroglu-signature .signature-content{padding:24px 22px}
-  .paroglu-signature .signature-shell img{object-position:center center}
-  .paroglu-signature .signature-actions{width:100%}
-  .paroglu-signature .signature-link{width:100%}
-}
-</style><script>(function(){try{if(sessionStorage.getItem('pmV12Transition'))document.documentElement.classList.add('v12-arriving');if(sessionStorage.getItem('pmV12IntroSeen'))document.documentElement.classList.add('v12-intro-seen')}catch(e){}})();</script><link href="motion-v12.css?v=13" rel="stylesheet"/></head><body class="pm-text-motion" data-home="true"><div class="v12-intro" aria-hidden="true"><div class="v12-intro-core"><img class="v12-intro-logo" src="paroglu-media-logo-light.png" alt=""/><div class="v12-intro-line"></div><div class="v12-intro-meta"><span>CREATIVE / VIDEO / DESIGN</span><span>PAROGLU MEDIA · 2026</span></div></div></div><div class="noise"></div><div class="page-transition"></div>
-<header class="site-nav"><div class="nav-inner"><a aria-label="Paroglu Media" class="brand" href="index.html"><img alt="Paroglu Media" class="brand-logo" src="paroglu-media-logo-light.png"/></a><nav class="nav-links"><a data-cms="nav.about" data-transition="" href="hakkimda.html">Hakkımda</a><a data-cms="nav.services" data-transition="" href="hizmetler.html">Hizmetler</a><a data-cms="nav.work" data-transition="" href="isler.html">İşler</a><a class="nav-cta" data-cms="nav.quote" data-transition="" href="teklif-al.html">Teklif Al ↗</a><a data-cms="nav.contact" data-transition="" href="iletisim.html">İletişim</a></nav><button aria-expanded="false" aria-label="Hızlı menüyü aç" class="menu-toggle" type="button">☰</button></div><div class="mobile-menu"><a href="hakkimda.html">Hakkımda</a><a href="hizmetler.html">Hizmetler</a><a href="isler.html">İşler</a><a class="mobile-cta" href="teklif-al.html">Teklif Al ↗</a><a href="iletisim.html">İletişim</a></div></header>
-<main><section class="hero">
-<div class="hero-typographic">
-<div class="hero-kicker" data-cms="home.hero_kicker">KREATİF PRODÜKSİYON · FOTOĞRAF · VİDEO · TASARIM</div>
-<h1 aria-label="Görünen değil, hatırlanan işler üretiyorum." class="hero-title"><span class="line"><span class="word" data-cms="home.hero_line1">Görünen değil,</span></span><span class="line"><span class="word"><em data-cms="home.hero_line2">hatırlanan işler.</em></span></span></h1>
-<p class="hero-copy" data-cms="home.hero_copy"><span class="pm-copy-motion">Markaların, etkinliklerin ve projelerin hikâyesini güçlü görsellere dönüştürüyorum. Stratejiden çekime, tasarımdan post prodüksiyona kadar süreci tek bir yaratıcı çizgide yönetiyorum.</span></p>
-<div class="hero-actions"><a class="btn primary hero-main-cta" href="teklif-al.html">Projeyi Konuşalım ↗</a></div>
-<div aria-label="Kısa bilgiler" class="hero-proof"><span>4+ yıl profesyonel deneyim</span><i></i><span>1000+ içerik / tasarım</span><i></i><span>Karabük merkezli · Türkiye genelinde</span></div>
-</div>
-<div class="hero-scroll"><span>SCROLL</span><i></i></div>
-</section><section class="section home-selected-film" data-selected-film="" id="selected-film">
-<div class="container selected-film-head reveal">
-<div><div class="kicker">SELECTED FILM / ACK BIÇAK</div><h2 class="section-title">Zanaatın<br/><em>içinden.</em></h2></div>
-<div class="selected-film-side"><p>Safranbolu’da bıçak üretiminin ateşini, ritmini ve el işçiliğini sinematik bir hikâyeye dönüştüren seçili film.</p><div class="selected-film-tags"><span>Sinematik Film</span><span>Drone</span><span>Prodüksiyon</span><span>Kurgu</span></div></div>
-</div>
-<div class="container selected-film-wrap reveal">
-<div class="selected-film-stage">
-<video aria-label="ACK Bıçak sinematik film önizlemesi" autoplay="" class="selected-film-preview" loop="" muted="" playsinline="" poster="ack-bicak-poster.jpg" preload="metadata">
-<source src="ack-bicak-preview.mp4" type="video/mp4"/>
-</video>
-<div class="selected-film-shade"></div>
-<div class="selected-film-topline"><span>PAROGLU MEDIA × ACK BIÇAK</span><span>SAFRANBOLU · 2026</span></div>
-<button aria-label="ACK Bıçak filmini aç" class="selected-film-play" data-film-open="" type="button"><i>▶</i><span>Tam Filmi İzle</span></button>
-<div class="selected-film-caption"><strong>Ateş. Çelik. Zanaat.</strong><span>01:24 · Film</span></div>
-</div>
-</div>
-</section><section class="section home-work-section" id="selected">
-<div class="container">
-<div class="section-head reveal">
-<div><div class="kicker">PORTFOLYO / SEÇKİ</div><h2 class="section-title">İş konuşsun.</h2><p class="section-copy home-work-copy">Konserden spora, sosyal medyadan tasarıma uzanan seçili işler. Her biri farklı bir ihtiyacı güçlü bir görsel dile dönüştürüyor.</p></div>
-<div class="home-work-head-actions">
-<a class="pill" href="isler.html">Tüm Portfolyo ↗</a>
-</div>
-</div>
-</div>
-<div class="home-work-viewport" data-home-work="">
-<div class="home-work-track"><a class="home-work-card ratio-landscape" data-rotate="concert-sefo-poster.jpg|concert-hakan-peker-poster.jpg|concert-dedubluman-poster.jpg|concert-poizi-poster.jpg" href="konser.html"><div class="home-work-media"><img alt="Konser video çalışmaları" src="concert-sefo-poster.jpg"/><span class="home-work-flash"></span></div><div class="home-work-meta"><small>VİDEO · KONSER</small><strong>Konser Video</strong><span>SEFO · Hakan Peker · Dedublüman · Poizi</span></div></a><a class="home-work-card ratio-portrait" data-rotate="concert-gokhan-turkmen-01.jpg|concert-hakan-peker-01.jpg|concert-sefo-01.jpg" href="fotograf.html"><div class="home-work-media"><img alt="Konser fotoğraf çekimleri" src="concert-gokhan-turkmen-01.jpg"/><span class="home-work-flash"></span></div><div class="home-work-meta"><small>FOTOĞRAF · KONSER</small><strong>Konser Fotoğrafı</strong><span>Gökhan Türkmen · Hakan Peker · SEFO</span></div></a><a class="home-work-card ratio-portrait" data-rotate="karabuk-idman-yurdu-01.png|karabuk-idman-yurdu-03.png|karabuk-idman-yurdu-06.png" href="karabuk-idman-yurdu.html"><div class="home-work-media"><img alt="Karabük İdman Yurdu çalışmaları" src="karabuk-idman-yurdu-01.png"/><span class="home-work-flash"></span></div><div class="home-work-meta"><small>SPOR · SOSYAL MEDYA</small><strong>Karabük İdman Yurdu</strong><span>Maç günü · Transfer · Tasarım</span></div></a><a class="home-work-card ratio-portrait" data-rotate="design-yilmaz-gucumuz-ekibimiz.jpg|design-gokhan-turkmen-billboard.jpg|design-safranbolu-unesco-31.jpg" href="tasarim.html"><div class="home-work-media"><img alt="Grafik tasarım çalışmaları" src="design-yilmaz-gucumuz-ekibimiz.jpg"/><span class="home-work-flash"></span></div><div class="home-work-meta"><small>GRAFİK TASARIM</small><strong>Tasarım</strong><span>Kampanya · Sosyal medya · Outdoor</span></div></a><a class="home-work-card ratio-portrait" data-rotate="kepezspor-matchday-01.jpg|kepezspor-matchday-04.jpg|kepezspor-matchday-08.jpg" href="kepezspor.html"><div class="home-work-media"><img alt="Kepezspor çalışmaları" src="kepezspor-matchday-01.jpg"/><span class="home-work-flash"></span></div><div class="home-work-meta"><small>SPOR · TASARIM</small><strong>Kepezspor</strong><span>Maç günü · Spor iletişimi</span></div></a><a class="home-work-card ratio-portrait" data-rotate="corluspor-1947-01.jpg|corluspor-1947-03.jpg|corluspor-1947-09.jpg" href="corluspor.html"><div class="home-work-media"><img alt="Çorluspor 1947 çalışmaları" src="corluspor-1947-01.jpg"/><span class="home-work-flash"></span></div><div class="home-work-meta"><small>SPOR · SOSYAL MEDYA</small><strong>Çorluspor 1947</strong><span>Maç günü · İlk 11 · Kupa</span></div></a></div>
-</div>
-<div class="container home-work-controls"><span>Kaydır / sürükle</span><div><button aria-label="Önceki" data-home-prev="" type="button">←</button><button aria-label="Sonraki" data-home-next="" type="button">→</button></div></div>
-</section><section class="section home-services-condensed">
-<div class="container">
-<div class="section-head reveal"><div><div class="kicker">HİZMETLER</div><h2 class="section-title">Fikirden yayına kadar.</h2></div><a class="pill" href="hizmetler.html">Tüm Hizmetler ↗</a></div>
-<div class="home-service-grid">
-<a class="home-service-card reveal" href="hizmetler.html"><span>01</span><h3>Video / Reels</h3><p>Marka filmleri, Reels, etkinlik ve dijital platformlar için fikirden post prodüksiyona kadar video üretimi.</p><i>↗</i></a>
-<a class="home-service-card reveal" href="fotograf.html"><span>02</span><h3>Fotoğraf</h3><p>Markanın kimliğini ve anın karakterini yansıtan profesyonel fotoğraf prodüksiyonları.</p><i>↗</i></a>
-<a class="home-service-card reveal" href="tasarim.html"><span>03</span><h3>Tasarım</h3><p>Kampanyadan sosyal medyaya kadar marka bütünlüğünü koruyan güçlü görsel iletişim.</p><i>↗</i></a>
-<a class="home-service-card reveal" href="hizmetler.html"><span>04</span><h3>Sosyal Medya</h3><p>Sadece paylaşım değil; markanın dijital dünyadaki görsel dilini oluşturan içerik sistemleri.</p><i>↗</i></a>
-<a class="home-service-card reveal" href="drone.html"><span>05</span><h3>Drone</h3><p>Projeye ölçek ve farklı bir perspektif kazandıran profesyonel hava görüntüleri.</p><i>↗</i></a>
-</div>
-</div>
-</section><section class="section brands brands-classic">
-<div class="container"><div class="section-head reveal"><div><div class="kicker">REFERANSLAR</div><h2 class="section-title">Güven, iyi işlerin başlangıcı.</h2></div><p class="section-copy">Farklı sektörlerden markalar ve spor kulüpleriyle aynı hedef için çalıştım: daha güçlü bir görsel iletişim.</p></div></div>
-<div class="brand-marquee-grid" data-brand-area=""><div class="brand-marquee-row"><div class="brand-marquee-track"><div class="brand-marquee-group"><div class="brand-tile"><span>SGB MOTORS</span></div><div class="brand-tile"><span>KARABÜK İDMAN YURDU</span></div><div class="brand-tile"><span>FITNESS CLUB</span></div></div><div aria-hidden="true" class="brand-marquee-group"><div class="brand-tile"><span>SGB MOTORS</span></div><div class="brand-tile"><span>KARABÜK İDMAN YURDU</span></div><div class="brand-tile"><span>FITNESS CLUB</span></div></div></div></div><div class="brand-marquee-row reverse"><div class="brand-marquee-track"><div class="brand-marquee-group"><div class="brand-tile"><span>KEPEZSPOR</span></div><div class="brand-tile"><span>ÇORLUSPOR 1947</span></div><div class="brand-tile"><span>SİBELİN SANAT ATÖLYESİ</span></div><div class="brand-tile"><span>ACK BIÇAK</span></div></div><div aria-hidden="true" class="brand-marquee-group"><div class="brand-tile"><span>KEPEZSPOR</span></div><div class="brand-tile"><span>ÇORLUSPOR 1947</span></div><div class="brand-tile"><span>SİBELİN SANAT ATÖLYESİ</span></div><div class="brand-tile"><span>ACK BIÇAK</span></div></div></div></div></div>
-</section><section class="section home-why">
-<div class="container">
-<div class="section-head reveal"><div><div class="kicker">NEDEN PAROGLU?</div><h2 class="section-title">Sadece güzel görünmesi<br/>yetmez.</h2></div></div>
-<div class="home-why-grid">
-<article class="home-why-card reveal"><span>01</span><h3>Tek üretim hattı</h3><p>Çekimden tasarıma kadar bütün içerikler aynı yaratıcı çizgide ilerler; projenin görsel dili baştan sona tutarlı şekilde korunur.</p></article>
-<article class="home-why-card reveal"><span>02</span><h3>Platforma göre üretim</h3><p>Instagram, Reels, web veya kampanya; içerik kullanılacağı mecra ve hedef düşünülerek hazırlanır.</p></article>
-<article class="home-why-card reveal"><span>03</span><h3>Sahadan post prodüksiyona</h3><p>Planlama, çekim, kurgu, tasarım ve teslim süreci tek noktadan yönetilir.</p></article>
-</div>
-</div>
-</section><section class="section paroglu-signature home-signature-block">
-<div class="container reveal">
-<div class="signature-shell">
-<img alt="Umut Paroğlu — Paroglu Media imza görseli" loading="lazy" src="paroglu-neon-glasses.png"/>
-<div class="signature-content">
-<div class="signature-copy">
-<div class="signature-eyebrow">UMUT PAROĞLU / PAROGLU MEDIA</div>
-<h2>Fikirden kadraja,<br/><em>tek bir yaratıcı çizgi.</em></h2>
-<p>Video, fotoğraf, tasarım ve dijital üretimi aynı görsel dilde birleştiriyorum. Amaç yalnızca içerik üretmek değil; markayı daha güçlü ve hatırlanır göstermek.</p>
-<span class="signature-note">Creative direction · Video · Fotoğraf · Tasarım · Dijital</span>
-</div>
-<div class="signature-actions">
-<a class="signature-link primary" href="hakkimda.html">Hakkımda’ya Geç ↗</a>
-<a class="signature-link" href="teklif-al.html">Projeyi Konuşalım</a>
-</div>
-</div>
-</div>
-</div>
-</section><section class="home-final-cta">
-<div class="container reveal">
-<div class="kicker">YENİ BİR PROJE Mİ VAR?</div>
-<h2>İyi bir fikirle<br/><em>başlayalım.</em></h2>
-<p>Markanı, etkinliğini veya projenin ihtiyacını anlat. Nasıl daha güçlü gösterebileceğimizi birlikte planlayalım.</p>
-<div><a class="btn primary cta-pulse" href="teklif-al.html">Projeyi Konuşalım ↗</a><a class="btn" href="https://wa.me/905416629862" rel="noopener" target="_blank">WhatsApp’tan Yaz</a></div>
-</div>
-</section></main>
-<footer class="footer footer-home-minimal"><div class="container"><div class="footer-grid"><div><img alt="Paroglu Media" class="footer-logo" src="paroglu-media-logo-light.png"/><span data-cms="footer.disciplines">Reels · Fotoğraf · Tasarım · Sosyal Medya · Drone · Dijital</span></div><div><strong>Keşfet</strong><a href="hakkimda.html">Hakkımda</a><br/><a href="hizmetler.html">Hizmetler</a><br/><a href="isler.html">İşler</a></div><div><strong>İletişim</strong><a data-cms="contact.email" data-cms-href="contact.email_href" href="mailto:umutparoglu87@gmail.com">umutparoglu87@gmail.com</a><br/><a data-cms="contact.phone" data-cms-href="contact.phone_href" href="tel:+905416629862">+90 541 662 98 62</a><br/><a data-cms="contact.linkedin" data-cms-href="contact.linkedin_href" href="https://www.linkedin.com/in/umut-paro%C4%9Flu-27a630281/" rel="noopener noreferrer" target="_blank">LinkedIn ↗</a></div></div><div class="footer-bottom"><span>© 2026 Paroglu Media</span><span>Karabük / Türkiye</span></div></div></footer>
-<button aria-expanded="false" aria-label="Paroglu Asistanı aç" class="assistant-launch" type="button"><i>✦</i><span>Paroglu Asistan</span></button><aside class="assistant-panel"><div class="assistant-head"><div><strong>Paroglu Asistan ✦</strong><small>Projen için yardımcı olur.</small></div><button aria-label="Paroglu Asistanı kapat" class="assistant-close" type="button">×</button></div><div class="messages"></div><div class="assistant-input"><input aria-label="Paroglu Asistan mesajı" placeholder="Bir şey yaz..."/><button aria-label="Mesajı gönder" type="button">↑</button></div></aside>
-<script src="backend-config.js?v=13"></script><script src="data-store.js?v=13"></script><script src="app.js?v=13"></script>
-<div aria-hidden="true" class="film-modal" data-film-modal="">
-<button aria-label="Filmi kapat" class="film-modal-backdrop" data-film-close="" type="button"></button>
-<div aria-label="ACK Bıçak filmi" aria-modal="true" class="film-modal-dialog" role="dialog">
-<button aria-label="Kapat" class="film-modal-close" data-film-close="" type="button">×</button>
-<video class="film-modal-video" controls="" data-film-full="" playsinline="" poster="ack-bicak-poster.jpg" preload="none">
-<source src="ack-bicak-film.mp4" type="video/mp4"/>
-</video>
-<div class="film-modal-meta"><span>PAROGLU MEDIA × ACK BIÇAK</span><strong>Zanaatın içinden.</strong></div>
-</div>
-</div><script>
-(function(){
-  var modal=document.querySelector('[data-film-modal]'), full=document.querySelector('[data-film-full]');
-  if(!modal) return;
-  function openFilm(){modal.classList.add('open');modal.setAttribute('aria-hidden','false');document.documentElement.classList.add('film-open');if(full){full.currentTime=0;var p=full.play();if(p&&p.catch)p.catch(function(){})}}
-  function closeFilm(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');document.documentElement.classList.remove('film-open');if(full)full.pause()}
-  document.querySelector('[data-film-open]')?.addEventListener('click',openFilm);
-  document.querySelectorAll('[data-film-close]').forEach(function(btn){btn.addEventListener('click',closeFilm)});
-  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&modal.classList.contains('open'))closeFilm()});
-})();
-</script>
-<script src="motion-v12.js?v=13"></script></body></html>
+  <header class="site-header" id="siteHeader">
+    <a class="brand" href="#top" aria-label="ParogluMedia ana sayfaya dön">
+      <span class="brand-name">paroglu<span>media</span><b>.</b></span>
+      <span class="brand-desc">CREATIVE PRODUCTION STUDIO</span>
+    </a>
+    <nav class="desktop-nav" aria-label="Ana navigasyon">
+      <a href="#work">İşler</a>
+      <a href="#approach">Yaklaşım</a>
+      <a href="#services">Hizmetler</a>
+      <a href="#about">Hakkımda</a>
+    </nav>
+    <div class="header-actions">
+      <a href="../teklif-al.html" class="header-cta">Projeni konuşalım <span aria-hidden="true">↗</span></a>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menüyü aç" aria-controls="mobileMenu" aria-expanded="false" type="button"><span></span><span></span></button>
+    </div>
+  </header>
+  <nav class="mobile-menu" id="mobileMenu" aria-label="Mobil navigasyon" inert>
+    <a href="#work">İşler <span>01</span></a>
+    <a href="#approach">Yaklaşım <span>02</span></a>
+    <a href="#services">Hizmetler <span>03</span></a>
+    <a href="#about">Hakkımda <span>04</span></a>
+    <a href="../teklif-al.html">Teklif al <span>↗</span></a>
+    <p>KARABÜK · TÜRKİYE</p>
+  </nav>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="heroTitle">
+      <div class="hero-media" aria-hidden="true">
+        <img data-asset="concert-gokhan-turkmen-02.jpg" alt="" fetchpriority="high" class="hero-photo" />
+        <div class="hero-photo-tint"></div>
+      </div>
+      <div class="hero-halo" aria-hidden="true"></div>
+      <div class="hero-raster" aria-hidden="true"></div>
+      <div class="hero-topnote"><span class="signal"></span> HER KARENİN BİR HİKÂYESİ VAR</div>
+      <div class="hero-inner">
+        <div class="hero-copy-top"><span>GÖRSEL ANLATININ</span><span>YENİ SINIRLARINDA</span></div>
+        <h1 class="hero-title" id="heroTitle"><span class="hero-title-first">BEYOND</span><span class="hero-title-second">THE <i>FRAME.</i></span></h1>
+        <div class="hero-bottom">
+          <p>Görünen değil,<br /><strong>hatırlanan işler.</strong></p>
+          <div class="hero-bottom-right"><span>FİKİRDEN KAREYE. KAREDEN HİKÂYEYE.</span><a href="#work" class="round-arrow" aria-label="İşleri keşfet">↘</a></div>
+        </div>
+      </div>
+      <div class="hero-foot"><span>01 / 05 — AÇILIŞ</span><a href="#film">KEŞFETMEK İÇİN KAYDIR <span aria-hidden="true">↓</span></a><span>38° — CREATIVE TERRITORY</span></div>
+    </section>
+
+    <div class="statement-band" aria-label="Üretim alanlarımız">
+      <div class="statement-track"><span>FILM</span><b>✳</b><span>PHOTO</span><b>✳</b><span>DESIGN</span><b>✳</b><span>SPORT</span><b>✳</b><span>CREATIVE</span><b>✳</b><span>FILM</span><b>✳</b><span>PHOTO</span><b>✳</b><span>DESIGN</span><b>✳</b><span>SPORT</span><b>✳</b><span>CREATIVE</span><b>✳</b></div>
+    </div>
+
+    <section class="chapter chapter-film" id="film" aria-labelledby="filmTitle">
+      <div class="section-container">
+        <div class="section-index reveal"><span class="eyebrow"><span class="marker"></span> 01 / HİKÂYE</span><span>FEATURED FILM — 2026</span></div>
+        <div class="feature-heading reveal"><h2 id="filmTitle">Bazı hikâyeler<br /><em>iz bırakır.</em></h2><p>Bir anı yalnızca kaydetmek değil; ışığını, ritmini ve duygusunu yeniden hissettirmek için üretiyorum.</p></div>
+        <div class="feature-film reveal">
+          <video id="featureVideo" data-video="ack-bicak-preview.mp4" data-poster="ack-bicak-poster.jpg" autoplay muted playsinline loop preload="none" aria-label="ACK Bıçak sinematik video önizlemesi"></video>
+          <div class="feature-shade"></div>
+          <div class="feature-upper"><span>PAROGLUMEDIA × ACK BIÇAK</span><span>SELECTED FILM / 001</span></div>
+          <div class="feature-lower"><div><span class="video-label">SİNEMATİK PRODÜKSİYON</span><h3>Ateş. Çelik.<br />Zanaat.</h3></div><button class="video-play" id="openFilm" aria-label="ACK Bıçak filmini aç"><span>▶</span><small>FİLMİ İZLE</small></button></div>
+        </div>
+        <div class="film-caption"><span>HİKÂYE ÖNCE GELİR.</span><span>GÖRÜNTÜ ONU TAKİP EDER.</span></div>
+      </div>
+    </section>
+
+    <section class="chapter work-section" id="work" aria-labelledby="workTitle">
+      <div class="section-container">
+        <div class="section-index reveal"><span class="eyebrow"><span class="marker"></span> 02 / SEÇİLİ İŞLER</span><span>THE WORK / NOT THE NOISE</span></div>
+        <div class="work-heading reveal"><h2 id="workTitle">Kelimeler değil,<br /><em>işler konuşsun.</em></h2><div class="work-intro"><p>Konser sahnesinin enerjisi, tribünün tutkusu, bir markanın kimliği. Her disiplinde aynı fikir: unutulmaz bir etki.</p><a href="../isler.html">TÜM PORTFÖYÜ GÖR <span>↗</span></a></div></div>
+        <div class="filter-bar reveal" role="group" aria-label="Projeleri kategoriye göre filtrele">
+          <button class="filter-btn active" data-filter="all" aria-pressed="true">Tümü <sup>06</sup></button>
+          <button class="filter-btn" data-filter="concert" aria-pressed="false">Konser</button>
+          <button class="filter-btn" data-filter="sport" aria-pressed="false">Spor</button>
+          <button class="filter-btn" data-filter="film" aria-pressed="false">Film</button>
+          <button class="filter-btn" data-filter="design" aria-pressed="false">Tasarım</button>
+          <button class="filter-btn" data-filter="drone" aria-pressed="false">Drone</button>
+        </div>
+        <div class="work-grid" id="workGrid">
+          <a class="work-card work-large reveal" data-category="concert" href="../isler.html" aria-label="Gökhan Türkmen konser fotoğrafçılığı projelerini gör">
+            <img data-asset="concert-gokhan-turkmen-02.jpg" alt="Gökhan Türkmen konserinde sahne ışıkları altında çekilmiş fotoğraf" loading="lazy" />
+            <span class="work-number">01 / LIVE</span><span class="work-hover-arrow">↗</span>
+            <div class="work-card-footer"><div><small>LIVE / FOTOĞRAFÇILIK</small><h3>Sahnenin nabzı.</h3></div><span>GÖKHAN TÜRKMEN</span></div>
+          </a>
+          <a class="work-card work-small reveal" data-category="sport" href="../isler.html" aria-label="Karabük İdman Yurdu spor tasarımı projelerini gör">
+            <img data-asset="cover-karabuk.jpg" alt="Karabük İdman Yurdu için kırmızı mavi görsel tasarım" loading="lazy" />
+            <span class="work-number">02 / SPORT</span><span class="work-hover-arrow">↗</span>
+            <div class="work-card-footer"><div><small>SPOR / MARKA İLETİŞİMİ</small><h3>Tribünün ruhu.</h3></div><span>KARABÜK İY</span></div>
+          </a>
+          <a class="work-card work-small reveal" data-category="concert" href="../isler.html" aria-label="Sefo konser fotoğrafçılığı projelerini gör">
+            <img data-asset="concert-sefo-01.jpg" alt="Sefo konser sahnesinde canlı performans sırasında" loading="lazy" />
+            <span class="work-number">03 / LIVE</span><span class="work-hover-arrow">↗</span>
+            <div class="work-card-footer"><div><small>ETKİNLİK / FOTOĞRAF</small><h3>Enerjiyi yakala.</h3></div><span>SEFO</span></div>
+          </a>
+          <a class="work-card work-large reveal" data-category="film" href="../isler.html" aria-label="ACK Bıçak sinematik prodüksiyon projesini gör">
+            <img data-asset="ack-bicak-poster.jpg" alt="ACK Bıçak için sinematik filmden bıçak detayı" loading="lazy" />
+            <span class="work-number">04 / FILM</span><span class="work-hover-arrow">↗</span>
+            <div class="work-card-footer"><div><small>FİLM / KURGU / PRODÜKSİYON</small><h3>Zanaatın içinden.</h3></div><span>ACK BIÇAK</span></div>
+          </a>
+          <a class="work-card work-large reveal" data-category="design" href="../isler.html" aria-label="Grafik ve marka tasarımı projelerini gör">
+            <img data-asset="cover-design.jpg" alt="ParogluMedia mor tonlarda grafik tasarım seçkisi" loading="lazy" />
+            <span class="work-number">05 / DESIGN</span><span class="work-hover-arrow">↗</span>
+            <div class="work-card-footer"><div><small>MARKA / GÖRSEL KİMLİK</small><h3>Fikirden görsele.</h3></div><span>CREATIVE DESIGN</span></div>
+          </a>
+          <a class="work-card work-small reveal" data-category="drone" href="../isler.html" aria-label="Drone ve hava çekimi projelerini gör">
+            <img data-asset="cover-drone.jpg" alt="Gün batımında DJI Mini 5 Pro drone için hazırlanan görsel" loading="lazy" />
+            <span class="work-number">06 / AERIAL</span><span class="work-hover-arrow">↗</span>
+            <div class="work-card-footer"><div><small>DRONE / HAVADAN GÖRÜNTÜLEME</small><h3>Yeni perspektifler.</h3></div><span>AERIAL CINEMA</span></div>
+          </a>
+        </div>
+        <p class="filter-empty" id="filterEmpty" hidden>Bu kategoride henüz proje bulunmuyor.</p>
+      </div>
+    </section>
+
+    <section class="manifesto" id="approach" aria-labelledby="manifestoTitle">
+      <div class="manifesto-glow" aria-hidden="true"></div>
+      <div class="section-container manifesto-content reveal"><span class="eyebrow"><span class="marker"></span> 03 / YAKLAŞIM</span><p class="manifesto-pre">KAMERA SADECE BİR ARAÇ.</p><h2 id="manifestoTitle">İyi bir kare<br />görülür.<br /><em>Güçlü bir hikâye</em><br />hatırlanır.</h2><div class="manifesto-end"><span>BEYOND THE FRAME / PAROGLUMEDIA</span><span>◉ 2026</span></div></div>
+    </section>
+
+    <section class="chapter services-section" id="services" aria-labelledby="servicesTitle">
+      <div class="section-container">
+        <div class="section-index reveal"><span class="eyebrow"><span class="marker"></span> 04 / UZMANLIK ALANLARI</span><span>ONE VISION. MULTIPLE DISCIPLINES.</span></div>
+        <div class="services-layout"><div class="services-sticky reveal"><h2 id="servicesTitle">Her fikre<br /><em>yeni bir bakış.</em></h2><p>Teknik beceriyle yaratıcı sezgiyi aynı projede buluşturuyorum. Baştan sona bütünlüklü bir görsel dil.</p></div>
+          <div class="service-list">
+            <div class="service-item reveal"><span>01</span><div><h3>Video & Film</h3><p>Sinematik marka filmleri, Reels, kurgu ve post prodüksiyon.</p></div><span class="service-icon">↗</span></div>
+            <div class="service-item reveal"><span>02</span><div><h3>Konser & Etkinlik</h3><p>Enerjiyi ve sahnedeki anı koruyan fotoğraf ve video üretimi.</p></div><span class="service-icon">↗</span></div>
+            <div class="service-item reveal"><span>03</span><div><h3>Spor & Sosyal Medya</h3><p>Kulüpler için maç günü tasarımları, görsel kampanyalar, içerik yönetimi.</p></div><span class="service-icon">↗</span></div>
+            <div class="service-item reveal"><span>04</span><div><h3>Marka & Tasarım</h3><p>Kurumsal kimlik, sosyal medya görselleri ve yaratıcı kampanyalar.</p></div><span class="service-icon">↗</span></div>
+            <div class="service-item reveal"><span>05</span><div><h3>Drone & Aerial</h3><p>Havadan yeni perspektifler; yaratıcı çekim ve prodüksiyon desteği.</p></div><span class="service-icon">↗</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="about-section" id="about" aria-labelledby="aboutTitle">
+      <div class="section-container about-layout reveal"><div><span class="eyebrow"><span class="marker"></span> HAKKIMDA / STÜDYO</span><h2 id="aboutTitle">Bir kareyi<br /><em>farklı gör.</em></h2></div><div class="about-copy"><span class="about-small">UMUT PAROĞLU / CREATIVE PRODUCER</span><p>Görsel anlatımı yalnızca bir hizmet değil, markalar ve insanlar arasında bağ kuran bir dil olarak görüyorum. Konserlerden spor sahalarına, reklamlardan dijital dünyaya uzanan projelerde; her işin kendi karakterini bulması için çalışıyorum.</p><a href="../hakkimda.html">DAHA FAZLASINI KEŞFET <span>↗</span></a></div></div>
+    </section>
+
+    <section class="contact-section" id="contact" aria-labelledby="contactTitle">
+      <div class="contact-halo" aria-hidden="true"></div>
+      <div class="section-container contact-content reveal"><span class="eyebrow"><span class="marker"></span> 05 / SONRAKİ KARE</span><p>HER HARİKA FİKİR BİR MERHABAYLA BAŞLAR.</p><h2 id="contactTitle">Sıradaki hikâye<br /><em>seninki olsun.</em></h2><div class="contact-actions"><a class="button-primary" href="../teklif-al.html">BİRLİKTE ÜRETELİM <span>↗</span></a><a class="button-secondary" href="https://www.instagram.com/iamparoglu/" target="_blank" rel="noopener noreferrer">INSTAGRAM <span>↗</span></a></div></div>
+    </section>
+  </main>
+  <footer class="site-footer"><div class="section-container footer-inner"><div class="footer-top"><span>PAROGLU<span>MEDIA.</span></span><span>BEYOND THE FRAME / 2026</span></div><div class="footer-bottom"><span>© 2026 PAROGLUMEDIA. TÜM HAKLARI SAKLIDIR.</span><span>KARABÜK · TÜRKİYE</span><a href="#top">EN BAŞA DÖN ↑</a></div></div></footer>
+
+  <dialog class="film-dialog" id="filmDialog" aria-label="ACK Bıçak tam film">
+    <button type="button" class="dialog-close" id="closeFilm" aria-label="Videoyu kapat">KAPAT ✕</button>
+    <div class="dialog-player"><video id="fullFilm" controls playsinline preload="none" data-video="ack-bicak-film.mp4" data-poster="ack-bicak-poster.jpg"></video><p id="filmError" hidden>Video yüklenemedi. Tam filmi <a href="../index.html" target="_blank" rel="noopener noreferrer">portföy sitesinde</a> inceleyebilirsin.</p></div>
+  </dialog>
+</body>
+</html>
